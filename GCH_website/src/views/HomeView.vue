@@ -1,9 +1,7 @@
 <script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
+import GamersChillHouse from '../components/GamersChillHouse.vue'
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+  <GamersChillHouse />
 </template>
