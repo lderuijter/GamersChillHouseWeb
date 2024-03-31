@@ -93,6 +93,7 @@
         <li class="list-disc list-inside">Marcel</li>
         <li class="list-disc list-inside">Lucas</li>
       </ul>
+      <h1 class="font-honk text-5xl text-black text-left mx-5 my-7">Discord promo</h1>
     </div>
   </div>
 </template>
