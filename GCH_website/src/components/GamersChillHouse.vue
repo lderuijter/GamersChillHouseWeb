@@ -19,7 +19,7 @@
   </div>
   <div class="flex flex-row">
     <div class="basis-1/3 hidden md:block bg-gray-950 mr-5 shadow-lg shadow-blue-500/50">
-      <h1 class="font-honk text-5xl text-black text-center mx-5 my-7">
+      <h1 class="font-honk text-5xl text-black text-center border border-blue-600 mx-5 my-7">
         <a target="_blank" href="https://warframe.market/">Warframe Market</a>
       </h1>
       <p class="text-center mx-8 text-white font-mono h-fit text-wrap">
@@ -104,7 +104,10 @@
         <li class="list-disc list-inside">Marcel</li>
         <li class="list-disc list-inside">Lucas</li>
       </ul>
-      <h1 class="font-honk text-5xl text-black text-left mx-5 my-7">Discord promo</h1>
+      <h1 class="font-honk text-5xl text-black text-left mx-5 mt-7">Discord promo</h1>
+      <h1 class="font-mono text-2xl text-left text-blue-600 underline mx-5">
+        <a target="_blank" href="https://discord.gg/VcBkxTPYaR">Discord invite link</a>
+      </h1>
     </div>
   </div>
 </template>
@@ -122,7 +125,8 @@ body {
   border: solid 2px;
 }
 
-.scrollable-div::-webkit-scrollbar-thumb, .scrollable-div::-webkit-scrollbar {
+.scrollable-div::-webkit-scrollbar-thumb,
+.scrollable-div::-webkit-scrollbar {
   border-radius: 10px;
 }
 
@@ -131,6 +135,6 @@ body {
 }
 
 .scrollable-div::-webkit-scrollbar-thumb {
-  background: #0b9dc2;
+  background: #2563eb;
 }
 </style>
