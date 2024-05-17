@@ -66,7 +66,7 @@
                 </button>
               </div>
               <div v-for="(item, index) in documents" :key="index">
-                <div class="bg-blue-900 shadow-lg shadow-blue-500/50 rounded-lg mb-4">
+                <div class="bg-blue-900 shadow-lg shadow-blue-500/50 rounded-lg mb-4 text-wrap">
                   <div class="text-center text-white font-mono h-fit text-wrap">
                     <h1 class="text-2xl text-wrap">
                       Title -
