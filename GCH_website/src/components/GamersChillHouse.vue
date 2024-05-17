@@ -8,7 +8,7 @@
         rel="stylesheet"
       />
     </head>
-    <div class="flex flex-row bg-white shadow-xl shadow-blue-500/50 rounded-b-lg">
+    <div class="hidden md:flex flex-row bg-white shadow-xl shadow-blue-500/50 rounded-b-lg">
       <div class="basis-1/2">
         <img class="float-left w-28 hidden xl:block" src="../assets/images/clan_logo.png" />
         <img class="float-right mx-5 w-48 hidden sm:block" src="../assets/images/10.png" />
