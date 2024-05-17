@@ -68,15 +68,15 @@
               <div v-for="(item, index) in documents" :key="index">
                 <div class="bg-blue-900 shadow-lg shadow-blue-500/50 rounded-lg mb-4">
                   <div class="text-center text-white font-mono h-fit text-wrap">
-                    <h1 class="text-2xl">
+                    <h1 class="text-2xl text-wrap">
                       Title -
                       {{ item.title }}
                     </h1>
-                    <h2 class="text-xl">
+                    <h2 class="text-xl text-wrap">
                       User -
                       {{ item.user }}
                     </h2>
-                    <p class="text-lg">
+                    <p class="text-lg text-wrap">
                       {{ item.content }}
                     </p>
                   </div>
