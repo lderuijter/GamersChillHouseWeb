@@ -179,8 +179,8 @@ export default {
       content: '',
       updatedDocument: null,
       documents: [],
-      isHiddenClanInfo: false,
-      isHiddenDojo: false
+      isHiddenClanInfo: true,
+      isHiddenDojo: true,
     }
   },
   created() {
