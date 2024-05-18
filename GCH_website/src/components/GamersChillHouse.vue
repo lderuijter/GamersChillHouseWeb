@@ -187,7 +187,7 @@ export default {
 <style>
 html,
 body {
-  overflow: hidden;
+  overflow-y: hidden;
   height: 100%;
 }
 
