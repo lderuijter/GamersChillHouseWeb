@@ -10,28 +10,58 @@
     </head>
     <div class="hidden md:flex flex-row bg-white shadow-xl shadow-blue-500/50 rounded-b-lg">
       <div class="basis-1/2">
-        <img class="float-left w-28 hidden xl:block" src="../assets/images/clan_logo.png" />
+        <img class="float-left w-28 hidden xl:block" src="../assets/images/clan-logo.png" />
         <img class="float-right mx-5 w-48 hidden sm:block" src="../assets/images/10.png" />
       </div>
       <div class="basis-1/2">
         <h1 class="float-left font-honk text-5xl text-black w-fit mx-5 my-7">GamersChillHouse</h1>
-        <img class="float-right w-28 hidden xl:block" src="../assets/images/clan_logo.png" />
+        <img class="float-right w-28 hidden xl:block" src="../assets/images/clan-logo.png" />
       </div>
     </div>
     <div class="flex flex-row">
       <div class="basis-1/3 hidden md:block bg-gray-950 mr-5 shadow-lg shadow-blue-500/50">
-        <h1 class="font-honk text-5xl text-black text-center border border-blue-600 mx-5 my-7">
-          <a target="_blank" href="https://warframe.market/">Warframe Market</a>
-        </h1>
-        <p class="text-center mx-8 text-white font-mono h-fit text-wrap text-xl">
-          De link hierboven leidt je naar een site waar je in game items kan kopen en verkopen met
-          platinum. Zo kan je bijvoorbeeld mods farmen om platinum te verdienen en daar kan je dan
-          weer warframes van halen of andere mods van halen.
-        </p>
-        <h1 class="font-honk text-5xl text-black text-center mx-auto my-7">Extra</h1>
-        <p class="text-center mx-8 text-white font-mono h-fit text-wrap text-xl">
-          Screenshots van dojo
-        </p>
+        <div class="h-screen">
+          <div class="non-scrollable-container h-full overflow-auto">
+            <div class="scrollable-div max-h-full overflow-y-auto pb-28">
+              <h1
+                class="font-honk text-5xl text-black text-center border border-blue-600 mx-5 my-7"
+              >
+                <a target="_blank" href="https://warframe.market/">Warframe Market</a>
+              </h1>
+              <p class="text-center mx-8 text-white font-mono h-fit text-wrap text-xl">
+                De link hierboven leidt je naar een site waar je in game items kan kopen en verkopen
+                met platinum. Zo kan je bijvoorbeeld mods farmen om platinum te verdienen en daar
+                kan je dan weer warframes van halen of andere mods van halen.
+              </p>
+              <h1 class="font-honk text-5xl text-black text-center mx-5 my-7">
+                <button v-on:click="isHiddenDojo = !isHiddenDojo">Click for dojo</button>
+              </h1>
+              <img
+                v-if="!isHiddenDojo"
+                class="mx-auto h-96"
+                src="../assets/images/screenshot-dojo-1.png"
+              />
+              <br>
+              <img
+                v-if="!isHiddenDojo"
+                class="mx-auto h-96"
+                src="../assets/images/screenshot-dojo-2.png"
+              />
+              <br>
+              <img
+                v-if="!isHiddenDojo"
+                class="mx-auto h-96"
+                src="../assets/images/screenshot-dojo-3.png"
+              />
+              <br>
+              <img
+                v-if="!isHiddenDojo"
+                class="mx-auto h-96"
+                src="../assets/images/screenshot-dojo-4.png"
+              />
+            </div>
+          </div>
+        </div>
       </div>
       <div class="sm:basis-1/3">
         <div class="h-screen">
@@ -97,16 +127,32 @@
         </div>
       </div>
       <div class="basis-1/3 hidden md:block bg-gray-950 shadow-lg shadow-blue-500/50">
-        <h1 class="font-honk text-5xl text-black text-left mx-5 my-7">Admins</h1>
-        <ul class="text-left mx-8 text-white font-mono h-fit text-wrap text-2xl">
-          <li class="list-disc list-inside">Quin</li>
-          <li class="list-disc list-inside">Marcel</li>
-          <li class="list-disc list-inside">Lucas</li>
-        </ul>
-        <h1 class="font-honk text-5xl text-black text-left mx-5 mt-7">Discord promo</h1>
-        <h1 class="font-mono text-2xl text-left text-blue-600 underline mx-5">
-          <a target="_blank" href="https://discord.gg/VcBkxTPYaR">Discord invite link</a>
-        </h1>
+        <div class="h-screen">
+          <div class="non-scrollable-container h-full overflow-auto">
+            <div class="scrollable-div max-h-full overflow-y-auto pb-28">
+              <h1 class="font-honk text-5xl text-black text-left mx-5 my-7">
+                <button v-on:click="isHiddenClanInfo = !isHiddenClanInfo">
+                  Click for clan info
+                </button>
+              </h1>
+              <img
+                v-if="!isHiddenClanInfo"
+                class="mx-auto h-96"
+                src="../assets/images/clan-info.png"
+              />
+              <h1 class="font-honk text-5xl text-black text-left mx-5 my-7">Admins</h1>
+              <ul class="text-left mx-8 text-white font-mono h-fit text-wrap text-2xl">
+                <li class="list-disc list-inside">Quin</li>
+                <li class="list-disc list-inside">Marcel</li>
+                <li class="list-disc list-inside">Lucas</li>
+              </ul>
+              <h1 class="font-honk text-5xl text-black text-left mx-5 mt-7">Discord promo</h1>
+              <h1 class="font-mono text-2xl text-left text-blue-600 underline mx-5 pb-5">
+                <a target="_blank" href="https://discord.gg/VcBkxTPYaR">Discord invite link</a>
+              </h1>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -132,7 +178,9 @@ export default {
       user: '',
       content: '',
       updatedDocument: null,
-      documents: []
+      documents: [],
+      isHiddenClanInfo: false,
+      isHiddenDojo: false
     }
   },
   created() {
