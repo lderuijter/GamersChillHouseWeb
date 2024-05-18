@@ -34,7 +34,7 @@
         </p>
       </div>
       <div class="sm:basis-1/3">
-        <div class="h-screen w-screen">
+        <div class="h-screen">
           <div class="non-scrollable-container h-full overflow-auto">
             <div class="scrollable-div max-h-full overflow-y-auto pb-28">
               <h1 class="font-honk text-5xl text-black text-center mx-5 my-7">Messages</h1>
@@ -60,40 +60,38 @@
                 <br />
                 <button
                   @click="submitDocument"
-                  class="btn btn-primary rounded-lg text-white mt-4 p-3 bg-lime-600 mb-3"
+                  class="btn btn-primary rounded-lg text-white mt-4 px-5 p-2 bg-lime-600 mb-3"
                 >
                   Submit
                 </button>
               </div>
               <div v-for="(item, index) in documents" :key="index">
-                <div class="bg-blue-900 shadow-lg shadow-blue-500/50 rounded-lg mb-4 text-wrap">
-                  <div class="text-center text-white font-mono h-fit text-wrap">
-                    <h1 class="text-2xl text-wrap">
+                <div class="bg-blue-900 shadow-lg shadow-blue-500/50 rounded-lg mb-4 p-1 mx-5">
+                  <div
+                    class="text-center text-white text-wrap truncate font-mono h-fit max-w-sm sm:max-w-xl"
+                  >
+                    <h1 class="text-2xl">
                       Title -
                       {{ item.title }}
                     </h1>
-                    <h2 class="text-xl text-wrap">
+                    <h2 class="text-xl">
                       User -
                       {{ item.user }}
                     </h2>
-                    <p class="text-lg text-wrap">
+                    <p class="text-lg">
                       {{ item.content }}
                     </p>
                   </div>
                 </div>
                 <div class="text-center flex justify-center mb-4">
-                  <div
-                    class="pointer"
-                    @click="updateDocument(index)"
-                  >
-                    <span class="bg-yellow-500 p-1.5 rounded-lg text-white mr-5">Edit</span>
+                  <div class="pointer" @click="updateDocument(index)">
+                    <span class="bg-yellow-500 px-5 p-1.5 rounded-lg text-white mr-5">Edit</span>
                   </div>
                   <div class="pointer" @click="deleteDocument(index)">
-                    <span class="bg-red-500 p-1.5 rounded-lg text-white mr-5">Delete</span>
+                    <span class="bg-red-500 px-5 p-1.5 rounded-lg text-white mr-5">Delete</span>
                   </div>
                 </div>
               </div>
-              <!-- Add more message samples as needed -->
             </div>
           </div>
         </div>
@@ -115,8 +113,16 @@
 </template>
 
 <script>
-import firebaseApp from '@/firebase';
-import { getFirestore, collection, addDoc, updateDoc, doc, deleteDoc, getDocs } from 'firebase/firestore';
+import firebaseApp from '@/firebase'
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  updateDoc,
+  doc,
+  deleteDoc,
+  getDocs
+} from 'firebase/firestore'
 
 export default {
   name: 'DocumentApp',
@@ -127,60 +133,62 @@ export default {
       content: '',
       updatedDocument: null,
       documents: []
-    };
+    }
   },
   created() {
-    this.fetchDocuments();
+    this.fetchDocuments()
   },
   methods: {
     async fetchDocuments() {
-      const db = getFirestore(firebaseApp);
-      const querySnapshot = await getDocs(collection(db, 'messages'));
-      this.documents = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      const db = getFirestore(firebaseApp)
+      const querySnapshot = await getDocs(collection(db, 'messages'))
+      this.documents = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
     },
     async submitDocument() {
-      if (this.title.length === 0 || this.user.length === 0 || this.content.length === 0) return;
+      if (this.title.length === 0 || this.user.length === 0 || this.content.length === 0) return
 
-      const db = getFirestore(firebaseApp);
+      const db = getFirestore(firebaseApp)
       if (this.updatedDocument === null) {
         await addDoc(collection(db, 'messages'), {
           title: this.title,
           user: this.user,
           content: this.content
-        });
+        })
       } else {
         await updateDoc(doc(db, 'messages', this.updatedDocument), {
           title: this.title,
           user: this.user,
           content: this.content
-        });
-        this.updatedDocument = null;
+        })
+        this.updatedDocument = null
       }
-      this.title = '';
-      this.user = '';
-      this.content = '';
-      this.fetchDocuments();
+      this.title = ''
+      this.user = ''
+      this.content = ''
+      this.fetchDocuments()
     },
     updateDocument(index) {
-      const document = this.documents[index];
-      this.title = document.title;
-      this.user = document.user;
-      this.content = document.content;
-      this.updatedDocument = document.id;
+      const document = this.documents[index]
+      this.title = document.title
+      this.user = document.user
+      this.content = document.content
+      this.updatedDocument = document.id
     },
     async deleteDocument(index) {
-      const document = this.documents[index];
-      const db = getFirestore(firebaseApp);
-      await deleteDoc(doc(db, 'messages', document.id));
-      this.fetchDocuments();
+      const document = this.documents[index]
+      const db = getFirestore(firebaseApp)
+      await deleteDoc(doc(db, 'messages', document.id))
+      this.fetchDocuments()
     }
   }
-};
+}
 </script>
 
-<style scoped>
-template {
-  overflow: hidden;
+<style>
+html,
+body {
+  overflow-y: hidden;
+  height: 100%;
 }
 
 .pointer {
