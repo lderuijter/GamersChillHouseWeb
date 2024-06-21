@@ -7,15 +7,22 @@
         href="https://fonts.googleapis.com/css2?family=Honk&family=Micro+5&display=swap"
         rel="stylesheet"
       />
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Warframe clan promotie voor discord server" />
+        <meta name="keywords" content="Discord, Clan, Warframe, Quin" />
+        <meta name="author" content="Lucas" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </head>
     </head>
     <div class="hidden md:flex flex-row bg-white shadow-xl shadow-blue-500/50 rounded-b-lg">
       <div class="basis-1/2">
-        <img class="float-left w-28 hidden xl:block" src="../assets/images/clan-logo.png" />
-        <img class="float-right mx-5 w-48 hidden sm:block" src="../assets/images/10.png" />
+        <img alt="" class="float-left w-28 hidden xl:block" src="../assets/images/clan-logo.png" />
+        <img alt="" class="float-right mx-5 w-48 hidden sm:block" src="../assets/images/10.png" />
       </div>
       <div class="basis-1/2">
         <h1 class="float-left font-honk text-5xl text-black w-fit mx-5 my-7">GamersChillHouse</h1>
-        <img class="float-right w-28 hidden xl:block" src="../assets/images/clan-logo.png" />
+        <img alt="" class="float-right w-28 hidden xl:block" src="../assets/images/clan-logo.png" />
       </div>
     </div>
     <div class="flex flex-row">
@@ -38,24 +45,28 @@
               </h1>
               <img
                 v-if="!isHiddenDojo"
+                alt=""
                 class="mx-auto h-96"
                 src="../assets/images/screenshot-dojo-1.png"
               />
-              <br>
+              <br />
               <img
                 v-if="!isHiddenDojo"
+                alt=""
                 class="mx-auto h-96"
                 src="../assets/images/screenshot-dojo-2.png"
               />
-              <br>
+              <br />
               <img
                 v-if="!isHiddenDojo"
+                alt=""
                 class="mx-auto h-96"
                 src="../assets/images/screenshot-dojo-3.png"
               />
-              <br>
+              <br />
               <img
                 v-if="!isHiddenDojo"
+                alt=""
                 class="mx-auto h-96"
                 src="../assets/images/screenshot-dojo-4.png"
               />
@@ -137,6 +148,7 @@
               </h1>
               <img
                 v-if="!isHiddenClanInfo"
+                alt=""
                 class="mx-auto h-96"
                 src="../assets/images/clan-info.png"
               />
@@ -180,7 +192,7 @@ export default {
       updatedDocument: null,
       documents: [],
       isHiddenClanInfo: true,
-      isHiddenDojo: true,
+      isHiddenDojo: true
     }
   },
   created() {
