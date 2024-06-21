@@ -7,13 +7,6 @@
         href="https://fonts.googleapis.com/css2?family=Honk&family=Micro+5&display=swap"
         rel="stylesheet"
       />
-      <head>
-        <meta charset="UTF-8" />
-        <meta name="description" content="Warframe clan promotie voor discord server" />
-        <meta name="keywords" content="Discord, Clan, Warframe, Quin" />
-        <meta name="author" content="Lucas" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </head>
     </head>
     <div class="hidden md:flex flex-row bg-white shadow-xl shadow-blue-500/50 rounded-b-lg">
       <div class="basis-1/2">
