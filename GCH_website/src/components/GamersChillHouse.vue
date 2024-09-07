@@ -117,13 +117,18 @@
                     </p>
                   </div>
                 </div>
-                <div class="text-center flex justify-center mb-4">
-                  <div class="pointer" @click="updateDocument(index)">
-                    <span class="bg-yellow-500 px-5 p-1.5 rounded-lg text-white mr-5">Edit</span>
+                <div v-if="!item.hideFunctions">
+                  <div class="text-center flex justify-center mb-4">
+                    <div class="pointer" @click="updateDocument(index)">
+                      <span class="bg-yellow-500 px-5 p-1.5 rounded-lg text-white mr-5">Edit</span>
+                    </div>
+                    <div class="pointer" @click="deleteDocument(index)">
+                      <span class="bg-red-500 px-5 p-1.5 rounded-lg text-white mr-5">Delete</span>
+                    </div>
                   </div>
-                  <div class="pointer" @click="deleteDocument(index)">
-                    <span class="bg-red-500 px-5 p-1.5 rounded-lg text-white mr-5">Delete</span>
-                  </div>
+                </div>
+                <div v-else>
+                  Dit bericht kan niet aangepast of verwijderd worden.
                 </div>
               </div>
             </div>
@@ -193,9 +198,19 @@ export default {
   },
   methods: {
     async fetchDocuments() {
-      const db = getFirestore(firebaseApp)
-      const querySnapshot = await getDocs(collection(db, 'messages'))
-      this.documents = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+      const db = getFirestore(firebaseApp);
+      const querySnapshot = await getDocs(collection(db, 'messages'));
+
+      this.documents = querySnapshot.docs.map((doc) => {
+        const data = { id: doc.id, ...doc.data() };
+
+        if (data.user === 'Sjedei') {
+          return { ...data, hideFunctions: true };
+        }
+        return { ...data, hideFunctions: false };
+      });
+
+      console.log('Documents:', this.documents);
     },
     async submitDocument() {
       if (this.title.length === 0 || this.user.length === 0 || this.content.length === 0) return
