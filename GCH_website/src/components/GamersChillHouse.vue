@@ -209,8 +209,6 @@ export default {
         }
         return { ...data, hideFunctions: false };
       });
-
-      console.log('Documents:', this.documents);
     },
     async submitDocument() {
       if (this.title.length === 0 || this.user.length === 0 || this.content.length === 0) return
