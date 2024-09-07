@@ -67,7 +67,7 @@
           </div>
         </div>
       </div>
-      <div class="sm:basis-1/3">
+      <div class="mx-auto sm:basis-1/3">
         <div class="h-screen">
           <div class="non-scrollable-container h-full overflow-auto">
             <div class="scrollable-div max-h-full overflow-y-auto pb-28">
@@ -218,7 +218,7 @@ export default {
       this.title = ''
       this.user = ''
       this.content = ''
-      this.fetchDocuments()
+      await this.fetchDocuments()
     },
     updateDocument(index) {
       const document = this.documents[index]
@@ -231,7 +231,7 @@ export default {
       const document = this.documents[index]
       const db = getFirestore(firebaseApp)
       await deleteDoc(doc(db, 'messages', document.id))
-      this.fetchDocuments()
+      await this.fetchDocuments()
     }
   }
 }
