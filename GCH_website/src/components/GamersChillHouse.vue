@@ -127,7 +127,7 @@
                     </div>
                   </div>
                 </div>
-                <div v-else>
+                <div v-else class="text-center">
                   Dit bericht kan niet aangepast of verwijderd worden.
                 </div>
               </div>
