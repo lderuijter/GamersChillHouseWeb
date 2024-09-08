@@ -1,0 +1,35 @@
+$scrollbar-width: 14px;
+$scrollbar-bg: none;
+$scrollbar-thumb-color: #2563eb;
+$border-radius: 10px;
+
+.pointer {
+  cursor: pointer;
+}
+
+textarea {
+  margin: auto;
+  width: 30vh;
+  height: 7vh;
+}
+
+// Custom scrollbar styles
+.scrollable-div {
+  &::-webkit-scrollbar {
+    width: $scrollbar-width;
+    border: solid 2px;
+  }
+
+  &::-webkit-scrollbar-thumb,
+  &::-webkit-scrollbar {
+    border-radius: $border-radius;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $scrollbar-bg;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $scrollbar-thumb-color;
+  }
+}

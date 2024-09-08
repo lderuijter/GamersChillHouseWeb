@@ -1,13 +1,4 @@
 <template>
-  <div>
-    <head>
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Honk&family=Micro+5&display=swap"
-        rel="stylesheet"
-      />
-    </head>
     <div class="hidden md:flex flex-row bg-white shadow-xl shadow-blue-500/50 rounded-b-lg">
       <div class="basis-1/2">
         <img alt="" class="float-left w-28 hidden xl:block" src="../assets/images/clan-logo.png" />
@@ -165,7 +156,6 @@
         </div>
       </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -250,39 +240,6 @@ export default {
 }
 </script>
 
-<style>
-html,
-body {
-  overflow-y: hidden;
-  height: 100%;
-}
-
-.pointer {
-  cursor: pointer;
-}
-
-textarea {
-  margin: auto;
-  width: 30vh;
-  height: 7vh;
-}
-
-/* Custom scrollbar styles */
-.scrollable-div::-webkit-scrollbar {
-  width: 14px;
-  border: solid 2px;
-}
-
-.scrollable-div::-webkit-scrollbar-thumb,
-.scrollable-div::-webkit-scrollbar {
-  border-radius: 10px;
-}
-
-.scrollable-div::-webkit-scrollbar-track {
-  background: none;
-}
-
-.scrollable-div::-webkit-scrollbar-thumb {
-  background: #2563eb;
-}
+<style lang="scss" scoped>
+@import '../assets/sass/app.scss';
 </style>
